@@ -1,0 +1,47 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.1)
+    colorize (0.8.1)
+    concurrent-ruby (1.1.7)
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
+    fasterer (0.8.3)
+      colorize (~> 0.7)
+      ruby_parser (>= 3.14.1)
+    i18n (1.8.7)
+      concurrent-ruby (~> 1.0)
+    parallel (1.20.1)
+    parser (3.0.0.0)
+      ast (~> 2.4.1)
+    rainbow (3.0.0)
+    regexp_parser (2.0.3)
+    rexml (3.2.4)
+    rubocop (1.8.1)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.2.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.4.0)
+      parser (>= 2.7.1.5)
+    ruby-progressbar (1.11.0)
+    ruby_parser (3.15.1)
+      sexp_processor (~> 4.9)
+    sexp_processor (4.15.2)
+    unicode-display_width (2.0.0)
+
+PLATFORMS
+  ruby
+  x86_64-darwin-19
+
+DEPENDENCIES
+  faker
+  fasterer
+  rubocop
+
+BUNDLED WITH
+   2.2.4
