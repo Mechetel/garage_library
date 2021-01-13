@@ -53,12 +53,12 @@ class Library
   end
   # program functionality
 
-  def best_reader
-    order_most_popular_attribute(:reader, :name, 1)
+  def best_reader(quantity = 1)
+    order_most_popular_attribute(quantity, :reader, :name)
   end
 
-  def bestseller
-    order_most_popular_attribute(:book, :title, 1)
+  def bestseller(quantity = 1)
+    order_most_popular_attribute(quantity, :book, :title)
   end
 
   def top_books(size = 3)
@@ -70,7 +70,7 @@ class Library
 
   private
 
-  def order_most_popular_attribute(attribute, group_by_value, quantity = 1)
+  def order_most_popular_attribute(quantity, attribute, group_by_value)
     @orders.map(&attribute).group_by(&group_by_value).sort_by { |k, v| [-v.size, k] }.to_h.keys.shift(quantity)
   end
 

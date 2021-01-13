@@ -31,8 +31,8 @@ puts library
 library.save
 
 puts 'Lets see what we have'
-puts "    #{library.best_reader} is most often takes books"
-puts "    #{library.bestseller} is most popular book"
+puts "    #{library.best_reader(1)} is most often takes books"
+puts "    #{library.bestseller(1)} is most popular book"
 puts "    3 most popular book titles: #{library.top_books(3).map(&:title).join(', ')}"
 
 puts 'Also I can save library to file and load from it'
