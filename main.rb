@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 require_relative 'modules/autoload'
-require 'faker'
 
 puts 'First, I will create library for you with readers and books'
 

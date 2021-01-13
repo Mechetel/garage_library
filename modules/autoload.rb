@@ -2,6 +2,7 @@
 
 require 'date'
 require 'yaml'
+require 'faker'
 
 require_relative '../lib/entities/author'
 require_relative '../lib/entities/book'
