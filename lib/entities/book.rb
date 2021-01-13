@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class Book
-  attr_reader :title, :author, :description
+  attr_reader :title, :author
 
-  def initialize(title:, author:, description: '')
+  def initialize(title:, author:)
     valid_title?(title)
     valid_author?(author)
     @title = title
     @author = author
-    @description = description
   end
 
   def to_s
-    "Book { #{@name} by #{@author.name}. #{@description} }"
+    "Book { #{@title} by #{@author.name} }"
   end
 
   private
@@ -24,10 +23,5 @@ class Book
 
   def valid_author?(author)
     raise IncorrectClassError, Author unless author.is_a?(Author)
-  end
-
-  def valid_description?(description)
-    raise InvalidLengthError, 'positive' unless description.length.positive?
-    raise IncorrectClassError, String unless description.is_a?(String)
   end
 end
