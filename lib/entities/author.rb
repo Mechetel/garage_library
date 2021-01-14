@@ -12,7 +12,7 @@ class Author
   end
 
   def to_s
-    "Author { #{@name}, #{@year}. #{@bio} }"
+    "Author { #{@name}, #{@bio} }"
   end
 
   private

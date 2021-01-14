@@ -11,7 +11,7 @@ books   = []
 orders  = []
 
 begin
-  10.times do
+  5.times do
     readers << Reader.new(name: Faker::Name.name, email: Faker::Internet.email, city: Faker::Address.city,
                           street: Faker::Address.street_name, house: Faker::Number.within(range: 1..30))
     authors << Author.new(name: Faker::Book.author, bio: Faker::Lorem.sentence(word_count: 3))
@@ -22,15 +22,18 @@ rescue IncorrectClassError, InvalidLengthError, InvalidValueError => e
   puts e.message
 end
 
-library = Library.new(authors: authors, books: books, readers: readers, orders: orders)
+library = Library.new
+library << readers
+library << authors
+library << books
+library << orders
+
+puts 'I can save library to file and load from it'
+library.save
 
 puts library
-
-library.save
 
 puts 'Lets see what we have'
 puts "    #{library.best_reader(1)} is most often takes books"
 puts "    #{library.bestseller(1)} is most popular book"
 puts "    3 most popular book titles: #{library.top_books(3).map(&:title).join(', ')}"
-
-puts 'Also I can save library to file and load from it'

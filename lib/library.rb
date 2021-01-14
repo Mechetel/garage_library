@@ -9,12 +9,12 @@ class Library
 
   attr_accessor :books, :orders, :readers, :authors
 
-  def initialize(authors: [], books: [], readers: [], orders: [])
+  def initialize
     @books   = []
     @orders  = []
     @readers = []
     @authors = []
-    add(authors, books, readers, orders)
+    load_yml(FILE_PATH).each { |model| add(model) }
   end
 
   def to_s
@@ -25,8 +25,8 @@ class Library
       "Orders:\n\t#{@orders.join("\n\t")}\n"
   end
 
-  def add(*entities)
-    entities.flatten.each do |entity|
+  def add(entities)
+    entities.each do |entity|
       case entity
       when Author then @authors << entity unless @authors.include?(entity)
       when Book   then @books   << entity unless @books.include?(entity)
@@ -41,17 +41,6 @@ class Library
   def save(file = FILE_PATH)
     save_yml({ authors: @authors, books: @books, readers: @readers, orders: @orders }, file)
   end
-
-  def load(file = FILE_PATH)
-    data = load_yml(file)
-    return if !data.is_a?(Hash) || data.keys != %i[autors books readers orders]
-
-    @authors = data[:authors]
-    @books   = data[:books]
-    @readers = data[:readers]
-    @orders  = data[:orders]
-  end
-  # program functionality
 
   def best_reader(quantity = 1)
     order_most_popular_attribute(quantity, :reader, :name)
@@ -69,10 +58,6 @@ class Library
   end
 
   private
-
-  def order_most_popular_attribute(quantity, attribute, group_by_value)
-    @orders.map(&attribute).group_by(&group_by_value).sort_by { |k, v| [-v.size, k] }.to_h.keys.shift(quantity)
-  end
 
   def correct_order?(order)
     @readers.include?(order.reader) && @books.include?(order.book)
