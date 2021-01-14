@@ -59,6 +59,10 @@ class Library
 
   private
 
+  def order_most_popular_attribute(attribute, group_by_value, quantity = 1)
+    @orders.map(&attribute).group_by(&group_by_value).sort_by { |k, v| [-v.size, k] }.to_h.keys.shift(quantity)
+  end
+
   def correct_order?(order)
     @readers.include?(order.reader) && @books.include?(order.book)
   end
