@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../modules/storage'
+require_relative '../modules/storage.rb'
 
 class Library
   include Storage
@@ -26,7 +26,7 @@ class Library
   end
 
   def add(entities)
-    entities.each do |entity|
+    entities.flatten.each do |entity|
       case entity
       when Author then @authors << entity unless @authors.include?(entity)
       when Book   then @books   << entity unless @books.include?(entity)
@@ -59,7 +59,7 @@ class Library
 
   private
 
-  def order_most_popular_attribute(attribute, group_by_value, quantity = 1)
+  def order_most_popular_attribute(quantity, attribute, group_by_value)
     @orders.map(&attribute).group_by(&group_by_value).sort_by { |k, v| [-v.size, k] }.to_h.keys.shift(quantity)
   end
 
