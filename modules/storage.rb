@@ -15,7 +15,7 @@ module Storage
     YAML.safe_load(File.read(file_path), list, [], [], true).to_a
   end
 
-  def make_files(file_path = FILE_PATH)
+  def make_files(file_path)
     Dir.mkdir('db') unless Dir.exist?('db')
     File.new(file_path, 'w') unless File.exist?(file_path)
   end
