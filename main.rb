@@ -11,7 +11,7 @@ books   = []
 orders  = []
 
 begin
-  5.times do
+  3.times do
     readers << Reader.new(name: Faker::Name.name, email: Faker::Internet.email, city: Faker::Address.city,
                           street: Faker::Address.street_name, house: Faker::Number.within(range: 1..30))
     authors << Author.new(name: Faker::Book.author, bio: Faker::Lorem.sentence(word_count: 3))
@@ -36,4 +36,4 @@ puts library
 puts 'Lets see what we have'
 puts "    #{library.best_reader} is most often takes books"
 puts "    #{library.bestseller} is most popular book"
-puts "    3 most popular book titles: #{library.top_books.map(&:title).join(', ')}"
+puts "    Number of the 3 most popular books readers: #{library.count_of_top_books_readers}"
