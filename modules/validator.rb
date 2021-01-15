@@ -3,8 +3,10 @@
 module Validator
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
-  def arg_is_not_empty(arg)
-    raise InvalidLengthError, 'not empty' if arg.empty?
+  def arg_is_not_empty(*args)
+    args.each do |arg|
+      raise InvalidLengthError, 'not empty' if arg.empty?
+    end
   end
 
   def arg_is_positive(arg)
