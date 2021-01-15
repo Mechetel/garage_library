@@ -7,8 +7,7 @@ class Author
 
   def initialize(name:, bio: '')
     arg_is_a_class_of(name, bio, String)
-    arg_is_positive(name)
-    arg_is_in_range(name)
+    arg_is_not_empty(name)
     @name = name
     @bio = bio
   end

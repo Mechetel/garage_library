@@ -8,7 +8,7 @@ class Book
   def initialize(title:, author:)
     arg_is_a_class_of(title, String)
     arg_is_a_class_of(author, Author)
-    arg_is_positive(title)
+    arg_is_not_empty(title)
     @title = title
     @author = author
   end

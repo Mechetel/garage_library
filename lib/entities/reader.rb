@@ -8,7 +8,7 @@ class Reader
   def initialize(name:, email:, city:, street:, house:)
     arg_is_a_class_of(name, email, city, street, String)
     arg_is_a_class_of(house, Integer)
-    arg_is_in_range(name)
+    arg_is_positive(house)
     email_is_valid(email)
     @name = name
     @email = email

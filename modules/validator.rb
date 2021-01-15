@@ -2,14 +2,13 @@
 
 module Validator
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  DEFAULT_ARG_RANGE = (3..70).freeze
 
-  def arg_is_positive(arg)
-    raise InvalidLengthError, 'positive' unless arg.length.positive?
+  def arg_is_not_empty(arg)
+    raise InvalidLengthError, 'not empty' if arg.empty?
   end
 
-  def arg_is_in_range(arg)
-    raise InvalidLengthError, DEFAULT_ARG_RANGE unless DEFAULT_ARG_RANGE.include?(arg.length)
+  def arg_is_positive(arg)
+    raise InvalidValueError.new('house', 'should be positive') if arg <= 0
   end
 
   def email_is_valid(email)
