@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class IncorrectClassError < TypeError
   def initialize(correct_class)
     super("Incorrect class: argument must have class #{correct_class}")

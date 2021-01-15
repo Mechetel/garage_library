@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 require 'yaml'
 
 # module Storage
 module Storage
-  FILE_PATH = 'db/data.yaml'
+  FILE_PATH = 'db/data.yaml'.freeze
 
   def save_yml(data, file_path = FILE_PATH)
     make_files(file_path)

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Validator
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
