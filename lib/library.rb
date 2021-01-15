@@ -3,8 +3,6 @@
 class Library
   include Storage
 
-  FILE_PATH = 'db/data.yaml'
-
   attr_accessor :books, :orders, :readers, :authors
 
   def initialize
@@ -12,7 +10,7 @@ class Library
     @orders  = []
     @readers = []
     @authors = []
-    load_yml(FILE_PATH).each { |model| add(model) }
+    load_yml.each { |model| add(model) }
   end
 
   def to_s
@@ -36,7 +34,7 @@ class Library
 
   alias << add
 
-  def save(file = FILE_PATH)
+  def save(file)
     save_yml({ authors: @authors, books: @books, readers: @readers, orders: @orders }, file)
   end
 

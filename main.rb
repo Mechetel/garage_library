@@ -29,7 +29,7 @@ library << books
 library << orders
 
 puts 'I can save library to file and load from it'
-library.save
+library.save('db/data.yaml')
 
 puts library
 
