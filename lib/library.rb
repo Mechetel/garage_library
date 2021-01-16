@@ -22,10 +22,10 @@ class Library
   def add(entities)
     entities.flatten.each do |entity|
       case entity
-      when Author then @authors << entity unless @authors.include?(entity)
-      when Book   then @books   << entity unless @books.include?(entity)
-      when Reader then @readers << entity unless @readers.include?(entity)
-      when Order  then @orders  << entity unless @orders.include?(entity)
+      when Author then @authors << entity
+      when Book   then @books   << entity
+      when Reader then @readers << entity
+      when Order  then @orders  << entity
       end
     end
   end
