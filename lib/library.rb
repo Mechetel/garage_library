@@ -25,7 +25,7 @@ class Library
       when Author then @authors << entity unless @authors.include?(entity)
       when Book   then @books   << entity unless @books.include?(entity)
       when Reader then @readers << entity unless @readers.include?(entity)
-      when Order  then @orders  << entity if !@orders.include?(entity) && correct_order?(entity)
+      when Order  then @orders  << entity unless @orders.include?(entity)
       end
     end
   end
@@ -54,9 +54,5 @@ class Library
   def order_most_popular_attribute(quantity, attribute)
     grouped_orders = @orders.group_by(&attribute)
     (grouped_orders.keys.sort_by { |key| -grouped_orders[key].length })[0, quantity]
-  end
-
-  def correct_order?(order)
-    @readers.include?(order.reader) && @books.include?(order.book)
   end
 end
