@@ -14,7 +14,7 @@ begin
   3.times do
     readers << Reader.new(name: Faker::Name.name, email: Faker::Internet.email, city: Faker::Address.city,
                           street: Faker::Address.street_name, house: Faker::Number.within(range: 1..30))
-    authors << Author.new(name: Faker::Book.author, bio: Faker::Lorem.sentence(word_count: 3))
+    authors << Author.new(name: Faker::Book.author, biography: Faker::Lorem.sentence(word_count: 3))
     books   << Book.new(title: Faker::Book.title, author: authors.sample)
     orders  << Order.new(reader: readers.sample, book: books.sample, date: Date.today - rand(1..100))
   end

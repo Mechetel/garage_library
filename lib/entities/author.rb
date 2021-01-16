@@ -1,16 +1,16 @@
 class Author
   include Validator
 
-  attr_reader :name, :bio
+  attr_reader :name, :biography
 
-  def initialize(name:, bio: '')
-    arg_is_a_class_of(name, bio, String)
+  def initialize(name:, biography: '')
+    arg_is_a_class_of(name, biography, String)
     arg_is_not_empty(name)
     @name = name
-    @bio = bio
+    @biography = biography
   end
 
   def to_s
-    "Author { #{@name}, #{@bio} }"
+    "Author { #{@name}, #{@biography} }"
   end
 end
