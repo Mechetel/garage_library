@@ -46,7 +46,7 @@ class Library
 
   def count_of_top_books_readers(number = 3)
     books = bestseller(number)
-    (@orders.map { |order| order.reader if books.include?(order.book) }).compact.uniq.size
+    @orders.map { |order| order.reader if books.include?(order.book) }.compact.uniq.size
   end
 
   private
