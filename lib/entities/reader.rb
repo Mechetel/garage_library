@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Reader
   include Validator
 
