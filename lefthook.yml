@@ -1,0 +1,7 @@
+pre-commit:
+  parallel: true
+  commands:
+    rubocop:
+      run: rubocop
+    fasterer:
+      run: fasterer
