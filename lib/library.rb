@@ -31,22 +31,21 @@ class Library
   end
 
   def best_reader(quantity = 1)
-    order_most_popular_attribute(quantity, :reader)
+    order_most_popular_attribute(:reader).to_h.keys.first(quantity)
   end
 
   def bestseller(quantity = 1)
-    order_most_popular_attribute(quantity, :book)
+    order_most_popular_attribute(:book).to_h.keys.first(quantity)
   end
 
   def count_of_top_books_readers(number = 3)
-    books = bestseller(number)
-    @orders.map { |order| order.reader if books.include?(order.book) }.compact.uniq.size
+    order_most_popular_attribute(:book).first(number).to_h.values.flatten.uniq(&:reader).length
   end
 
   private
 
-  def order_most_popular_attribute(quantity, attribute)
+  def order_most_popular_attribute(attribute)
     grouped_orders = @orders.group_by(&attribute)
-    (grouped_orders.keys.sort_by { |key| -grouped_orders[key].length })[0, quantity]
+    grouped_orders.sort_by { |_attribute, order| -order.length }
   end
 end

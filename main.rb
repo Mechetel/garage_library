@@ -31,8 +31,6 @@ library << orders
 puts 'I can save library to file and load from it'
 library.save('db/data.yaml')
 
-puts library
-
 puts 'Lets see what we have'
 puts "    #{library.best_reader} is most often takes books"
 puts "    #{library.bestseller} is most popular book"
