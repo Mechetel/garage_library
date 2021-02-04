@@ -11,8 +11,4 @@ class Author
     @name = name
     @biography = biography
   end
-
-  def to_s
-    "Author { #{@name}, #{@biography} }"
-  end
 end

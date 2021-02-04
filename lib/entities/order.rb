@@ -13,8 +13,4 @@ class Order
     @book = book
     @date = date
   end
-
-  def to_s
-    "Order { reader: #{@reader.name}, book: #{@book.title}, date: #{@date.strftime('%d-%m-%Y')} }"
-  end
 end

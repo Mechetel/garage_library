@@ -17,8 +17,4 @@ class Reader
     @street = street
     @house = house
   end
-
-  def to_s
-    "Reader { #{@name}, city: #{@city}, street: #{@street}, house: #{@house}, email: #{@email} }"
-  end
 end

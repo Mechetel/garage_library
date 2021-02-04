@@ -13,14 +13,6 @@ class Library
     load_yml.each { |model| add(model) }
   end
 
-  def to_s
-    "Library\n" \
-      "Authors:\n\t#{@authors.join("\n\t")}\n" \
-      "Books:\n\t#{@books.join("\n\t")}\n" \
-      "Readers:\n\t#{@readers.join("\n\t")}\n" \
-      "Orders:\n\t#{@orders.join("\n\t")}\n"
-  end
-
   def add(entities)
     entities.flatten.each do |entity|
       case entity
