@@ -6,8 +6,8 @@ class Author
   attr_reader :name, :biography
 
   def initialize(name:, biography: '')
-    arg_is_a_class_of(name, biography, String)
-    arg_is_not_empty(name)
+    check_class(name, biography, String)
+    check_not_empty(name)
     @name = name
     @biography = biography
   end

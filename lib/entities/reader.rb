@@ -6,10 +6,10 @@ class Reader
   attr_reader :name, :email, :city, :street, :house
 
   def initialize(name:, email:, city:, street:, house:)
-    arg_is_a_class_of(name, email, city, street, String)
-    arg_is_a_class_of(house, Integer)
-    arg_is_not_empty(name, email, city, street)
-    arg_is_positive(house)
+    check_class(name, email, city, street, String)
+    check_class(house, Integer)
+    check_not_empty(name, email, city, street)
+    check_is_positive(house)
     email_is_valid(email)
     @name = name
     @email = email

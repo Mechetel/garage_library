@@ -6,9 +6,9 @@ class Order
   attr_reader :reader, :book, :date
 
   def initialize(reader:, book:, date: Date.today)
-    arg_is_a_class_of(reader, Reader)
-    arg_is_a_class_of(book, Book)
-    arg_is_a_class_of(date, Date)
+    check_class(reader, Reader)
+    check_class(book, Book)
+    check_class(date, Date)
     @reader = reader
     @book = book
     @date = date
